@@ -15,7 +15,7 @@ CGLM_PACKAGE=v${CGLM_VER}.tar.gz
 
 .PHONY: all clean test ttt-terminal ttt-opengl dirs opengl_deps
 
-all: test ttt-terminal ttt-opengl
+all: dirs test ttt-terminal ttt-opengl
 
 clean:
 	rm -f $(BINDIR)/*
@@ -40,7 +40,7 @@ dirs:
 
 opengl_deps: $(LIBCGLM)
 
-test: $(RUN_TESTS)
+test: dirs $(RUN_TESTS)
 	./$(RUN_TESTS)
 
 $(RUN_TESTS): run-tests.c ttt.h
