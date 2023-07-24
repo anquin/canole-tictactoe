@@ -37,4 +37,4 @@ in a regular qwerty keyboard.:
 License
 -------
 
-Released under GPLv3, see COPYING for mor information.
+Released under GPLv3, see COPYING for more information.
