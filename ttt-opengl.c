@@ -27,6 +27,7 @@ vec4 BOARD_LINE_COLOR = {0.5f, 0.5f, 0.8f, 1.0f};
 vec4 TOKEN_COLOR = {0.9f, 0.9f, 0.9f, 1.0f};
 vec4 TOKEN_WIN_COLOR = {0.3f, 0.3f, 1.0f, 1.0f};
 vec4 TOKEN_DRAW_COLOR = {0.4f, 0.4f, 0.4f, 1.0f};
+float TOKEN_WIDTH = 0.135;
 
 int SCREEN_WIDTH = 480;
 int SCREEN_HEIGHT = 480;
@@ -180,7 +181,7 @@ void build_circle(float radius, int v_count, float *points)
 void setup_token_o()
 {
   float token_vertices[TOKEN_O_NUM_LINES * 2 * 3]; // 16 lines * 2 points/line * 3 (vec size)
-  build_circle(0.15f, TOKEN_O_NUM_LINES, token_vertices);
+  build_circle(TOKEN_WIDTH, TOKEN_O_NUM_LINES, token_vertices);
   /* for (int i = 0; i < TOKEN_O_NUM_LINES * 2 * 3; i++) */
     /* printf(((i+1)%3) ? "%.2f," : "%.2f\n", token_vertices[i]); */
 
@@ -198,10 +199,10 @@ void setup_token_o()
 void setup_token_x()
 {
   float token_vertices[] = {
-    -0.15f, 0.15f, 0.0f,
-     0.15f, -0.15f, 0.0f,
-     0.15f, 0.15f, 0.0f,
-     -0.15f, -0.15f, 0.0f
+    -TOKEN_WIDTH, TOKEN_WIDTH, 0.0f,
+     TOKEN_WIDTH, -TOKEN_WIDTH, 0.0f,
+     TOKEN_WIDTH, TOKEN_WIDTH, 0.0f,
+     -TOKEN_WIDTH, -TOKEN_WIDTH, 0.0f
   };
 
   glGenVertexArrays(1, &renderer.token_x.VAO);
